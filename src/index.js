@@ -12,7 +12,6 @@ app.get("/animes", async (req, res) => {
   try {
     const animes = await prisma.anime.findMany();
     res.json(animes);
-    console.log(animes.length)
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Something went wrong." });
@@ -38,3 +37,5 @@ app.get("/animes/:id", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+module.exports = app
